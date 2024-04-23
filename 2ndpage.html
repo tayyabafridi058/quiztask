@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Page</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: century gothic;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: lightgray;
+        }
+        .container{
+            text-align: left;
+            margin: 50px auto;
+            /* border: 1px solid gray; */
+            /* background-color: #94bbe9; */
+            /* box-shadow: 0px 0px 5px gray; */
+            border-radius: 10px;
+            width: 600px;
+            height: auto;
+            padding: 30px 10px;
+        }
+        form{
+            margin: 10px auto;
+            width: 100%;
+            height: auto;
+            /* border: 1px solid lightgray; */
+            margin-top: 30px;
+            text-align: left;
+        }
+        .fill{
+            margin: 30px auto;
+            text-align: left;
+            width: 100%;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            height: auto;
+            padding: 20px 10px;
+            border: 1px solid lightgray;
+            box-shadow: 0px 0px 5px gray;
+        }
+        .fill p{
+            border-bottom: 1px solid gray;
+            padding-bottom: 10px;
+        }
+        .fill input{
+            margin-top: 10px;
+        }
+        button{
+            text-decoration: none;
+            background-color: blue;
+            padding: 7px 12px;
+            border: 1px solid blue;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        button:hover{
+            background-color: rgb(43, 43, 224);
+        }
+
+        @media screen and (max-width: 730px) {
+        .container{
+         width: 90%;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Answers</h1>
+        <form id="quiz-form">
+            <div class="fill">
+                <p>The term ‘Computer’ is derived from__________?</p>
+                <input type="radio" name="question1" value="A">
+                <label>Latin</label><br>
+                <input type="radio" name="question1" value="B">
+                <label>German</label><br>
+                <input type="radio" name="question1" value="C">
+                <label>French</label><br>
+                <input type="radio" name="question1" value="D">
+                <label>Arabic</label>
+            </div>
+            
+            <div class="fill">
+                <p>Who is the father of Computer?</p>
+                <input type="radio" name="question2" value="A">
+                <label>Allen Turing</label><br>
+                <input type="radio" name="question2" value="B">
+                <label>Charles Babbage</label><br>
+                <input type="radio" name="question2" value="C">
+                <label>Augusta Adaming</label><br>
+                <input type="radio" name="question2" value="D">
+                <label>Simur Cray</label>
+            </div> 
+
+            <div class="fill">
+                <p>The basic operations performed by a computer are__________?</p>
+                <input type="radio" name="question3" value="A">
+                <label>Arithmetic operation</label><br>
+                <input type="radio" name="question3" value="B">
+                <label>Logical operation</label><br>
+                <input type="radio" name="question3" value="C">
+                <label>Storage and retrieval</label><br>
+                <input type="radio" name="question3" value="D">
+                <label>All the above</label>
+            </div> 
+
+            <div class="fill">
+                <p>Who is the father of Internet?</p>
+                <input type="radio" name="question4" value="A">
+                <label>Charles Babbage</label><br>
+                <input type="radio" name="question4" value="B">
+                <label>Vint Cerf</label><br>
+                <input type="radio" name="question4" value="C">
+                <label>Denis Ritchie</label><br>
+                <input type="radio" name="question4" value="D">
+                <label>Martin Cooper</label>
+            </div> 
+
+            <div class="fill">
+                <p>If a computer has more than one processor then it is known as__________?</p>
+                <input type="radio" name="question5" value="A">
+                <label>Uni-processor</label><br>
+                <input type="radio" name="question5" value="B">
+                <label>Multiprocessor</label><br>
+                <input type="radio" name="question5" value="C">
+                <label>Multi-threaded</label><br>
+                <input type="radio" name="question5" value="D">
+                <label>Multi-programming</label>
+            </div> 
+           <button type="submit">Submit</button>
+        </form>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get selected answers
+            const answers = {
+                question1: document.querySelector('input[name="question1"]:checked').value,
+                question2: document.querySelector('input[name="question2"]:checked').value,
+                question3: document.querySelector('input[name="question3"]:checked').value,
+                question4: document.querySelector('input[name="question4"]:checked').value,
+                question5: document.querySelector('input[name="question5"]:checked').value
+            };
+
+            // Calculate score
+            let score = 0;
+            for (const key in answers) {
+                if (answers[key] === 'A') {
+                    score++;
+                }
+            }
+
+            // Display results
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = `<h2>Your score: ${score}/5</h2>`;
+        });
+    </script>
+</body>
+</html>

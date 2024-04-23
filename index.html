@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    font-family: century gothic;
+    box-sizing: border-box;
+}
+
+body{
+    background: lightgray;
+/* background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
+}
+.form{
+    text-align: center;
+    margin: 50px auto;
+}
+form{
+    width: 400px;
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    margin: 10px auto;
+    text-align: left;
+    padding: 20px 10px;
+}
+form h1{
+    margin-bottom: 10px;
+    border-bottom: 4px solid blue;
+    width: 100px;
+    padding-bottom: 10px;
+}
+.input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    color: gray;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+button{
+    font-size: 16px;
+    padding: 7px 12px;
+    background-color: blue;
+    border: 2px solid blue;
+    outline: none;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+button:hover{
+    background-color: rgb(43, 43, 224);
+}
+
+@media screen and (max-width: 730px) {
+    form{
+        width: 90%;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form id="studentForm" onsubmit="submitForm(event)">
+            <h1>Registration</h1>
+
+            <label for="rollNumber">Roll Number</label>
+            <input type="number" name="rollNumber" id="rollNumber" class="input" placeholder="Your Roll Number" required>
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="input" placeholder="Your Name" required>
+
+            <label for="batch">Batch</label>
+            <select name="batch" class="input" id="batch" required>
+                <option value="" selected>Select Batch</option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+            </select>
+
+            <label for="section">Section</label>
+            <select name="section" class="input" id="section" required>
+                <option value="" selected>Select Section</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+
+            <a href="2nd.html"><button type="submit">Submit</button></a>
+        </form>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form values
+            const rollNumber = document.getElementById('rollNumber').value;
+            const name = document.getElementById('name').value;
+            const batch = document.getElementById('batch').value;
+            const section = document.getElementById('section').value;
+
+            // Perform validation (if needed)
+
+            // Construct data object
+            const formData = {
+                rollNumber,
+                name,
+                batch,
+                section
+            };
+
+            // You can perform further actions like AJAX submission or local storage handling here
+            console.log('Form Data:', formData);
+
+            // Redirect to the next page
+            window.location.href = '2ndpage.html';
+        }
+    </script>
+</body>
+</html>
